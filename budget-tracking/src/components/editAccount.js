@@ -1,21 +1,22 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { addAccount } from '../actions';
+import { editAccount } from '../actions';
 
-class NewAccount extends Component {
+class EditAccount extends Component {
   render() {
     let name, description, budgetedAmmount, isActive;
     let id = this.props.location.search.slice(1, 9e9);
     return (
       <form onSubmit={(e) => {
         e.preventDefault();
-        this.props.addAccount({
-          name: name.value,
+        this.props.editAccount(id, {
+          name: name.value, 
           description: description.value, 
           budgetedAmmount: budgetedAmmount.value, 
           isActive: isActive.value,
         });
+        window.location.href='/';
         // name.value = description.value = budgetedAmmount.value = '';
       }}>
         <input ref={node => name = node} />
@@ -29,4 +30,4 @@ class NewAccount extends Component {
   }
 }
 
-export default connect(null, { addAccount })(NewAccount);
+export default connect(null, { editAccount })(EditAccount);

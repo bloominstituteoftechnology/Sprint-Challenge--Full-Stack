@@ -18,8 +18,9 @@ export const getAccounts = () => {
   }
 };
 export const getAccount = (id) => {};
+
 export const addAccount = (account) => {
-  const endpoint = `${url}/api/accounts/add`;
+  const endpoint = `${url}/api/accounts/new`;
   const newAccount = axios.post(endpoint, account)
     .then(getAccounts);
 

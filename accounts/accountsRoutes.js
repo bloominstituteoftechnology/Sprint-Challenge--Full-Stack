@@ -24,6 +24,8 @@ accountRouter.get('/:id', (req, res) => {
 
 accountRouter.post('/new', (req, res) => {
   const newAccount = new Accounts(req.body);
+  
+  // if account.budgetedAmmount is not a number return;
 
   newAccount.save((err, account) => {
     if (err) res.status(500).send(err);
@@ -34,6 +36,8 @@ accountRouter.post('/new', (req, res) => {
 accountRouter.put('/edit/:id', (req, res) => {
   const { id } = req.params;
   const updateAcc = req.body;
+  
+  // if account.budgetedAmmount is not a number return;
 
   Accounts.findById(id, (err, account) => {
     if (err) res.status(500).send(err);
