@@ -1,14 +1,14 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 
-class CreateAcct extends Component {
+class ListAcct extends Component {
     render () {
         return (
             <div className='header'>
-            Create
+            List
           </div>
         )
     }
 }
 
-export default CreateAcct
+export default ListAcct
