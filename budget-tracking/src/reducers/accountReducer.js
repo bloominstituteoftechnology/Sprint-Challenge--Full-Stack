@@ -5,6 +5,7 @@ export default (accounts = [], action) => {
     case GET_ACCOUNTS:
     case GET_ACCOUNT:
     case ADD_ACCOUNT:
+    case EDIT_ACCOUNT:
     case DELETE_ACCOUNT:
       return action.payload.data;
     default:

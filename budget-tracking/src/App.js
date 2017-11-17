@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Switch, } from 'react-router-dom';
+import { Route, Switch, NavLink } from 'react-router-dom';
 
 import myBudget from './components/accountsContainer.js';
 import editAccount from './components/editAccount.js';
@@ -11,6 +11,10 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <nav className="navigation">
+          <NavLink to='/'>Home</NavLink>
+          <NavLink to='/new'>New Account</NavLink>
+        </nav>
         <Switch>
           <Route path="/" component={ myBudget } exact />
           <Route path="/edit" component={ editAccount } />

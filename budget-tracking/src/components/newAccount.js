@@ -6,7 +6,6 @@ import { addAccount } from '../actions';
 class NewAccount extends Component {
   render() {
     let name, description, budgetedAmmount, isActive;
-    let id = this.props.location.search.slice(1, 9e9);
     return (
       <form onSubmit={(e) => {
         e.preventDefault();
@@ -16,7 +15,7 @@ class NewAccount extends Component {
           budgetedAmmount: budgetedAmmount.value, 
           isActive: isActive.value,
         });
-        // name.value = description.value = budgetedAmmount.value = '';
+        window.location.href='/';
       }}>
         <input ref={node => name = node} />
         <input ref={node => description = node} />

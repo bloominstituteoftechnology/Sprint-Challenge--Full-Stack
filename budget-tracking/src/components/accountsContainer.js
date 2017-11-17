@@ -1,7 +1,6 @@
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 
-import { getAccounts, getAccount, addAccount, editAccount, deleteAccount, } from '../actions';
+import { getAccounts, deleteAccount, } from '../actions';
 import Accounts from './accounts.js';
 
 const mapStateToProps = (state) => {
@@ -9,18 +8,5 @@ const mapStateToProps = (state) => {
     accounts: state.accountReducer,
   }
 }
-const mapDispatchToProps = (dispatch) => {
-  return { 
-    actions: bindActionCreators({ 
-      getAccounts,
-      /*
-      getAccount,
-      addAccount,
-      editAccount,
-      */
-      deleteAccount,
-    }, dispatch),
-  }
-}
 
-export default connect(mapStateToProps, mapDispatchToProps)(Accounts);
+export default connect(mapStateToProps, { getAccounts, deleteAccount, })(Accounts);

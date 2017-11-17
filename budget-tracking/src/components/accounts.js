@@ -10,7 +10,7 @@ class Accounts extends Component {
     };
   }
   componentDidMount() {
-    const accounts = this.props.actions.getAccounts();
+    const accounts = this.props.getAccounts();
     this.setState({ accounts });
   }
   render() {

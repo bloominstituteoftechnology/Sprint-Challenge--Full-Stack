@@ -17,7 +17,6 @@ class EditAccount extends Component {
           isActive: isActive.value,
         });
         window.location.href='/';
-        // name.value = description.value = budgetedAmmount.value = '';
       }}>
         <input ref={node => name = node} />
         <input ref={node => description = node} />
