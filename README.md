@@ -15,7 +15,7 @@
 1. What is Mongoose.js and what is it used for?
 
 ## Project
-Build a full stack application using React and React Router for the _front end_ (Redux is Optional), and Node.js, ExpressJS and MongoDB for the _back end_. 
+Build a full stack application using React and React Router (feel free to offload some of the boilerplate with Create React App) for the _front end_ (Redux is Optional), and Node.js, ExpressJS and MongoDB for the _back end_. 
 
 Organize your files any way you want.
 
