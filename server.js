@@ -4,10 +4,15 @@ const cors = require('cors');
 
 const mongoose = require('mongoose');
 
+const api = require('./common/apiRoutes.js');
+
 const server = express();
 
 server.use(bodyParser.json());
 server.use(cors());
+
+/* *** Routing *** */
+server.use('/api', api)
 
 /* *** Plumbing *** */
 mongoose.Promise = global.Promise;
