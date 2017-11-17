@@ -17,4 +17,5 @@ const rootReducer = combineReducers({
   accounts: accountsReducer,
 });
 
-export default rootReducer;
+// export default rootReducer;
+export default combineReducers({accountsReducer});
