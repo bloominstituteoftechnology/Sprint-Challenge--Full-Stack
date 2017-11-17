@@ -14,7 +14,6 @@ class Accounts extends Component {
     this.setState({ accounts });
   }
   render() {
-    console.log(this.state, this.props);
     return (
       <div className="accounts_container">
         <h1>List of Accounts</h1>
@@ -22,6 +21,7 @@ class Accounts extends Component {
           {this.props.accounts.map((account, i) => (
             <Account 
               key={ account._id }
+              id={ account._id }
               name={ account.name }
               description={ account.description }
               budget={ account.budgetedAmmount }

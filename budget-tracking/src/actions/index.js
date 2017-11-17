@@ -25,5 +25,11 @@ export const addAccount = (account) => {
 
   return newAccount;
 };
-export const editAccount = (account) => {};
+export const editAccount = (id, account) => {
+  const endpoint = `${url}/api/accounts/edit/${id}`;
+  const editAccount = axios.put(endpoint, account)
+    .then(getAccounts);
+
+  return editAccount;
+};
 export const deleteAccount = (id) => {};

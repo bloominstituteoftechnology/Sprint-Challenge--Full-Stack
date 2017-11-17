@@ -13,9 +13,11 @@ const mapDispatchToProps = (dispatch) => {
   return { 
     actions: bindActionCreators({ 
       getAccounts,
+      /*
       getAccount,
       addAccount,
       editAccount,
+      */
       deleteAccount,
     }, dispatch),
   }
