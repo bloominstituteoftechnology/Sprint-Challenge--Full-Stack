@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 function CustomTextInput(props) {
   return (
     <input
@@ -9,9 +10,11 @@ function CustomTextInput(props) {
       placeholder={props.placeholder}
       type={props.type}
       style={props.style}
+      pattern={props.pattern}
+      title={props.title}
     />
   );
-} 
+}
 export default class Account extends Component {
   constructor(props) {
     super(props);
@@ -20,12 +23,10 @@ export default class Account extends Component {
     this.name = '';
     this.description = '';
     this.budgetedAmount = 0;
-    this.isActive = false
+    this.isActive = false;
   }
 
-
-  componentDidMount() {
-  }
+  componentDidMount() {}
   render() {
     return (
       <form
@@ -40,7 +41,7 @@ export default class Account extends Component {
           this.props.addAccount({
             name: this.name.value,
             description: this.description.value,
-            budgetedAmount: this.budgetedAmount.value,    
+            budgetedAmount: this.budgetedAmount.value,
             isActive: this.isActive.value
           });
           this.name = '';
@@ -58,7 +59,7 @@ export default class Account extends Component {
             placeholder="name"
             size="30"
           />
-        <CustomTextInput
+          <CustomTextInput
             inputRef={el => (this.description = el)}
             className="inputText"
             type="text"
@@ -68,7 +69,9 @@ export default class Account extends Component {
           <CustomTextInput
             inputRef={el => (this.budgetedAmount = el)}
             className="inputText"
-            type="number"
+            type="float"
+            pattern="\d*(\.\d\d)?"
+            title="if decimal must be followed by 2 digits"
             placeholder="budgeted amount"
             size="15"
           />
@@ -81,7 +84,10 @@ export default class Account extends Component {
           />
         </div>
         <button type="submit">Add Account</button>
-      </form> 
+        <button>
+          <Link to="/">Back to List</Link>
+        </button>
+      </form>
     );
   }
 }

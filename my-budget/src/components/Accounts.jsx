@@ -26,15 +26,15 @@ class Accounts extends Component {
     let r = {}
     try {
       if (this.props.accounts === undefined) return  { __html: 'undef data'}
-      console.log('setHTML non undef data');
-      let index = cellInfo.index
-      console.log('index:',index)
-      let id = cellInfo.column.id
-      console.log('id:',id)
+      // console.log('setHTML non undef data');
+      // let index = cellInfo.index
+      // console.log('index:',index)
+      // let id = cellInfo.column.id
+      // console.log('id:',id)
       r = {  __html:this.props.accounts[cellInfo.index][cellInfo.column.id]}
     }
     catch(err) {
-      console.log('setHTML err:',err)
+      // console.log('setHTML err:',err)
       r = { __html: 'empty crap'}
     }
     return r;
