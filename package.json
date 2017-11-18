@@ -1,0 +1,26 @@
+{
+  "name": "sprint-challenge--full-stack",
+  "version": "1.0.0",
+  "description": "* The purpose of this exercise is to have you build a _full stack_ application using the MERN stack (MongoDB, ExpressJS, ReactJS and Node.js) and get you used to being quizzed on commonly asked _Interview Questions_ about Node.js, ExpressJS and MongoDB.\r * Answers to your written questions should be recorded in *Answers.md* \r * This is to be worked on alone but you can use outside resources. You can *reference* any old code you may have, and the Corresponding Documentation, however, please refrain from copying and pasting any of your answers. Try and understand the question and put your responses in your own words. Be as thorough as possible when explaining something. \r * Don't fret or get anxious about this, this is a no-pressure assessment, NOT a pass/fail situation.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lightofdavinci/Sprint-Challenge--Full-Stack.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lightofdavinci/Sprint-Challenge--Full-Stack/issues"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "cors": "^2.8.4",
+    "express": "^4.16.2",
+    "mongoose": "^4.13.2"
+  },
+  "homepage": "https://github.com/lightofdavinci/Sprint-Challenge--Full-Stack#readme"
+}
