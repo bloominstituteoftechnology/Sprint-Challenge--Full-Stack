@@ -12,6 +12,7 @@ server.use(cors());
 server.use(bodyParser.json());
 
 server.use('', apiRouter);
+server.use(express.static(__dirname + '/my-budget/build/'));
 
 const AtlasMongoIUrl = 
 'mongodb://LambdaDataManager:XPoCMUH4qMHINDKc@mongoi-shard-00-00-2ydlw.mongodb.net:27017,mongoi-shard-00-01-2ydlw.mongodb.net:27017,mongoi-shard-00-02-2ydlw.mongodb.net:27017/mongoi?ssl=true&replicaSet=mongoi-shard-0&authSource=admin';
@@ -22,7 +23,7 @@ mongoose
   .then((db) => {
     console.log('All your databases are belong to us!');
     const port = 5003
-    server.listen(port, function() {
+    server.listen(process.env.port || port, function() {
       console.log(`Server running on port ${port}`);
     });
   })

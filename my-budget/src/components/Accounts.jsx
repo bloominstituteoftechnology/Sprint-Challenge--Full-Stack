@@ -81,7 +81,7 @@ class Accounts extends Component {
       },
       {
         id: 'modifyAccount',
-        Header: '',
+        Header: 'Modify',
         accessor: d => (
           <button
             onClick={() => {
@@ -97,7 +97,20 @@ class Accounts extends Component {
             Modify Account
           </button>
         )
-      }
+      },
+      {
+        id: 'deleteAccount',
+        Header: 'Delete',
+        accessor: d => (
+          <button
+            onClick={() => {
+              this.props.deleteAccount(d._id);
+            }}
+          >
+            Delete Account
+          </button>
+        )
+      }      
     ];
     return (
       <div>
