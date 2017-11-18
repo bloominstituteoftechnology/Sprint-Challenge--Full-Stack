@@ -1,0 +1,18 @@
+{
+  "name": "Sprint-Challenge--Full-Stack",
+  "version": "1.0.0",
+  "main": "server.js",
+  "repository": "https://github.com/invegat/Sprint-Challenge--Full-Stack.git",
+  "author": "invegat <mark.c.oliver@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "cors": "^2.8.4",
+    "express": "^4.16.2",
+    "mongoose": "^4.13.3"
+  }
+}
