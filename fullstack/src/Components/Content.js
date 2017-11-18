@@ -4,8 +4,8 @@ import { Route } from 'react-router-dom'
 import CreateAcct from './CreateAcct';
 import UpdateAcct from './UpdateAcct';
 import HomePage from './HomePage';
-import AcctList from './AcctList';
-import AcctLists from './AcctLists';
+import ListAcct from './ListAcct';
+import ListAccts from './ListAccts';
 
 const ContentBox = () => {
     return (
@@ -13,8 +13,8 @@ const ContentBox = () => {
             <Route exact path='/' component={HomePage} />
             <Route path='/CreateAcct' component={CreateAcct} />
             <Route path='/UpdateAcct' component={UpdateAcct} />
-            <Route path='/AcctList' component={AcctList} />
-            <Route path='/AcctLists' component={AcctLists} />
+            <Route path='/ListAcct' component={ListAcct} />
+            <Route path='/ListAccts' component={ListAccts} />
         </div>
     )
 }

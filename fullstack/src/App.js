@@ -6,6 +6,12 @@ import ContentBox from './Components/Content';
 import './Css/Header.css'
 
 class App extends Component {
+  constructor () {
+    super()
+    this.state= {
+      acctData: []
+    }
+  }
   render() {
     return (
       <Router>

@@ -7,11 +7,11 @@ const NavBar = () => {
     return (
         <div>
             <header>  
-                <NavLink to="/"> Home </NavLink>
-                <NavLink to="/createAcct" activeClassName='activeLink' >Create  </NavLink>
-                <NavLink to="/updateAcct" activeClassName='activeLink' >Update   </NavLink>
-                <NavLink to="/listAccts" activeClassName='activeLink' >All   </NavLink>
-                <NavLink to="/listAcct" activeClassName='activeLink' >Find  </NavLink>
+                <NavLink to="/"><button>Home</button></NavLink>
+                <NavLink to="/createAcct" activeClassName='activeLink' ><button>Create</button></NavLink>
+                <NavLink to="/updateAcct" activeClassName='activeLink' ><button>Update</button></NavLink>
+                <NavLink to="/listAccts" activeClassName='activeLink' ><button>All</button></NavLink>
+                <NavLink to="/listAcct" activeClassName='activeLink' ><button>Find</button></NavLink>
             </header>
         </div>
     )
