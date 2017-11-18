@@ -45,7 +45,7 @@ accountRouter.put('/edit/:id', (req, res) => {
     account.name = updateAcc.name || account.name;
     account.description = updateAcc.description || account.description;
     account.budgetedAmmount = updateAcc.budgetedAmmount || account.budgetedAmmount;
-    account.isActive = updateAcc.isActive || account.isActive;
+    account.isActive = updateAcc.isActive;
 
     account.save((error, acc) => {
       if (error) res.status(500).send(err);

@@ -14,13 +14,13 @@ class EditAccount extends Component {
           name: name.value, 
           description: description.value, 
           budgetedAmmount: budgetedAmmount.value, 
-          isActive: isActive.value,
+          isActive: isActive.checked,
         });
         window.location.href='/';
       }}>
         <input ref={node => name = node} />
         <input ref={node => description = node} />
-        <input ref={node => budgetedAmmount = node} />
+        <input ref={node => budgetedAmmount = node} type="number"/>
         <input ref={node => isActive = node} type="checkbox" name="isActive" defaultChecked/>
         <label htmlFor="isActive">Account is Active</label>
         <input type="submit" />
