@@ -5,7 +5,7 @@ export const DELETE_ACCOUNT = 'DELETE_ACCOUNT';
 export const EDIT_ACCOUNT = 'EDIT_ACCOUNT';
 export const GET_ACCOUNTS = 'GET_ACCOUNTS';
 
-const url = 'http://localhost:3000/api';
+const url = 'http://localhost:3223/api';
 
 export const addAccount = (newAccount) => {
   const endpoint = url + '/accounts';

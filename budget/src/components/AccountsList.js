@@ -17,7 +17,20 @@ class AccountsList extends Component {
   render() {
     return (
       <div>
-        Hello!
+        {this.props.accounts.map((account, i) => {
+          return (
+            <div>
+              {Object.keys(account).map((key, i) => {
+                return (
+                  <div key={i}>
+                    {`${key}: ${account[key]}`}
+                  </div>
+                )
+              })}
+            </div>
+          );
+        })}
+        <Form update={ this.state.update } id={ this.state.id } inputFunction={ this.props.editAccount } />
       </div>
     );
   }
