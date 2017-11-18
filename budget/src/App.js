@@ -1,7 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import './App.css';
-import { name, description, budgetedAmount, isActive } from ('./server.js')
+import BudgetForm from './components/BudgetForm';
+import BudgetFormEdit from './components/BudgetFormEdit';
+import BudgetFormDelete from './components/BudgetFormDelete';
+import BudgetsContainer from './components/BudgetsContainer';
 
 // class App extends Component {
 //   render() {
@@ -10,9 +13,8 @@ import { name, description, budgetedAmount, isActive } from ('./server.js')
 //         <header className="App-header">
 //           <h1 className="App-title">Welcome to Your Budget App!</h1>
 //         </header>
-//         <p className="App-intro">
-//           To get started, Use <code>src/App.js</code> to help manage your budget!.
-//         </p>
+//         <BudgetForm />
+//         <BudgetsContainer />
 //       </div>
 //     );
 //   }
@@ -25,116 +27,27 @@ const Home = () => (
   </div>
 )
 
-
-const MyBudget = ({ match }) => (
-  <div>
-    <h3>{match.params.budgetId}</h3>
-  </div>
-)
-
 const MyBudgets = ({ match }) => (
   <div>
-    each budget in budgets
-    <li> {budget.name}: {budget.budgetedAmount}: {budget.isActive}</li>
-  </div>
-)
-
-const CreateAccount = ({ match }) => (
-  <div>
-    <h3>{match.params.budgetId}</h3>
+  <BudgetsContainer /> 
   </div>
 )
 
 const CreateAccounts = ({ match }) => (
   <div>
-  {/* <ul>
-    <li>
-      <Link to={`${match.url}/ravens`}>
-        Baltimore Ravens
-      </Link>
-    </li>
-    <li>
-      <Link to={`${match.url}/bengals`}>
-        Cincinnati Bengals
-      </Link>
-    </li>
-    <li>
-      <Link to={`${match.url}/browns`}>
-        Cleveland Browns
-      </Link>
-    </li>
-    <li>
-      <Link to={`${match.url}/steelers`}>
-        Pittsburgh Steelers
-      </Link>
-    </li>
-  </ul> */}
-  </div>
-)
-
-const EditAccount = ({ match }) => (
-  <div>
-    <h3>{match.params.budgetId}</h3>
+  <BudgetForm />
   </div>
 )
 
 const EditAccounts = ({ match }) => (
   <div>
-  {/* <ul>
-    <li>
-      <Link to={`${match.url}/texans`}>
-        Houston Texans
-      </Link>
-    </li>
-    <li>
-      <Link to={`${match.url}/colts`}>
-        Indianapolis Colts
-      </Link>
-    </li>
-    <li>
-      <Link to={`${match.url}/jaguars`}>
-        Jacksonville Jaguars
-      </Link>
-    </li>
-    <li>
-      <Link to={`${match.url}/titans`}>
-        Tennessee Titans
-      </Link>
-    </li>
-  </ul> */}
-  </div>
-)
-
-const DeleteAccount = ({ match }) => (
-  <div>
-    <h3>{match.params.budgetId}</h3>
+  <BudgetFormEdit />
   </div>
 )
 
 const DeleteAccounts = ({ match }) => (
   <div>
-  {/* <ul>
-    <li>
-      <Link to={`${match.url}/broncos`}>
-        Denver Broncos
-      </Link>
-    </li>
-    <li>
-      <Link to={`${match.url}/chiefs`}>
-        Kansas City Chiefs
-      </Link>
-    </li>
-    <li>
-      <Link to={`${match.url}/chargers`}>
-        Los Angeles Chargers
-      </Link>
-    </li>
-    <li>
-      <Link to={`${match.url}/raiders`}>
-        Oakland Raiders
-      </Link>
-    </li>
-  </ul> */}
+  <BudgetFormDelete />
   </div>
 )
 
@@ -174,9 +87,6 @@ const Budgets = ({ match }) => (
     </ul>
 
     <Route path={`${match.url}/:topicId`} component={Budget}/>
-    <Route exact path={match.url} render={() => (
-      <h3>Please select a budget.</h3>
-    )}/>
   </div>
 )
 
@@ -204,3 +114,5 @@ const TheBudget = () => (
 
 
 export default TheBudget;
+
+// export default App;
