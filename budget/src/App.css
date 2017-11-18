@@ -1,0 +1,39 @@
+.App {
+  text-align: center;
+}
+
+.App .nav {
+  list-style-type: none;
+  padding: 10px 0;
+  margin: 0;
+  background-color: #333;
+  color: #fff;
+}
+
+.App .nav li {
+  display: inline-block;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.App .nav li a {
+  text-decoration: none;
+  font-size: 20px;
+  color: #fff;
+}
+
+.App .list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.App .AccountForm {
+  width: 300px;
+  margin: 30px auto;
+}
+
+.App .AccountForm input {
+  width: 300px;
+  box-sizing: border-box;
+  margin-bottom: 5px;
+}
