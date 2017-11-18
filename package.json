@@ -7,7 +7,8 @@
   "license": "MIT",
   "private": false,
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "node server.js",
+    "heroku-postbuild": "cd my-budget && yarn --production=false && yarn run build"
   },
   "dependencies": {
     "body-parser": "^1.18.2",
