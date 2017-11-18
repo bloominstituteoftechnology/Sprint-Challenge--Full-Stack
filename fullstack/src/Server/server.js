@@ -16,7 +16,7 @@ mongoose.Promise = global.Promise
 mongoose
 .connect('mongodb://localhost:27017/accounts', { useMongoClient: true })
 .then(function(db){
-    console.log('All wired up')
+    console.log('All wired up and ready to go')
 })
 .catch(function(err) {
     console.log('Database connection failed', err.message);

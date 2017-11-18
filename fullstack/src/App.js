@@ -1,17 +1,13 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
+import axios from 'axios';
 
 import NavBar from './Components/NavBar';
 import ContentBox from './Components/Content';
 import './Css/Header.css'
 
 class App extends Component {
-  constructor () {
-    super()
-    this.state= {
-      acctData: []
-    }
-  }
+
   render() {
     return (
       <Router>
@@ -20,9 +16,9 @@ class App extends Component {
         <h1> Budget Creator </h1>
         <NavBar />
         </header>
-        <p className='header'>
-          <ContentBox />
-        </p>
+          <div className='header'>
+              <ContentBox />
+          </div>
       </div>
       </Router>
     );
