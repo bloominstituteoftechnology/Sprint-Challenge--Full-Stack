@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "cors": "^2.8.4",
+    "express": "^4.16.2",
+    "global": "^4.3.2",
+    "mongoose": "^4.13.4",
+    "webpack": "^3.8.1"
+  }
+}
