@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
-import UserList from './UserList.js';
+// import UserList from './UserList.js';
+import axios from 'axios';
 
 class App extends Component {
   constructor() {
@@ -39,18 +40,13 @@ class App extends Component {
   }
 
   handleAddUser() {
-    // Create an object with 2 properties id and title.
-    // id assigns a unique id to a newTodo.
-    // title holds the text of the newTodo.
     const newUser = {};
     newUser['id'] = this.state.userList.length;
-    newUser['name'] = this.state.name;
+    newUser['username'] = this.state.name;
     newUser['description'] = this.state.description;
-    newUser['amount'] = this.state.budgetAmt;
+    newUser['budgetAmt'] = this.state.budgetAmt;
     newUser['isActive'] = this.state.isActive;
 
-    // Create an array newTodoList.
-    // push the value of new todo item to this array
     const newUserList = this.state.userList;
     newUserList.push(newUser);
     this.setState({
@@ -66,11 +62,23 @@ class App extends Component {
   handleRemoveUser(userId) {
     const newUserList = this.state.userList;
     newUserList.forEach((currUser, i) => {
+      console.log('currUser.id ', currUser.id);
       if (currUser.id === userId) {
+        console.log('removing ', userId);
         newUserList.splice(i, 1);
       }
     });
     this.setState({ userList: newUserList  });
+  }
+
+  componentDidMount() {
+    const usersEndpoint = 'http://localhost:5000/userdata';
+    axios.get(usersEndpoint).then(res => {
+      console.log("res: " + res.data[0]);
+      const newUserList = res.data;
+      this.setState({ userList: newUserList  });
+      console.log('this.state.userList', this.state.userList);
+    });
   }
 
   render() {
@@ -99,8 +107,8 @@ class App extends Component {
         <button onClick={this.handleAddUser}>Submit User</button>
         {this.state.userList.map(user => {
         return (
-          <div key={user.id}>
-            {user.name}
+          <div key={user.username}>
+            {user.username}
             <button
               onClick={() => {
                 this.handleRemoveUser(user.id);
