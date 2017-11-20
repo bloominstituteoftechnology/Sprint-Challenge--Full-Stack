@@ -20,6 +20,7 @@ class App extends Component {
     this.handleUserBudgetAmtChange = this.handleUserBudgetAmtChange.bind(this);
     this.handleUserIsActiveChange = this.handleUserIsActiveChange.bind(this);
     this.handleAddUser = this.handleAddUser.bind(this);
+    this.addUserFromServerResponse = this.addUserFromServerResponse.bind(this);
     this.handleRemoveUser = this.handleRemoveUser.bind(this);
   }
 
@@ -39,16 +40,11 @@ class App extends Component {
     this.setState({ isActive: event.target.value });
   }
 
-  handleAddUser() {
-    const newUser = {};
-    newUser['id'] = this.state.userList.length;
-    newUser['username'] = this.state.name;
-    newUser['description'] = this.state.description;
-    newUser['budgetAmt'] = this.state.budgetAmt;
-    newUser['isActive'] = this.state.isActive;
-
+  // Used inside handleAddUser(). Passes as callback to axios.post().
+  addUserFromServerResponse(response) {
     const newUserList = this.state.userList;
-    newUserList.push(newUser);
+    // Server's response contains the new entry we just added.
+    newUserList.push(response.data);
     this.setState({
       userList:newUserList, 
       name: '',
@@ -56,10 +52,32 @@ class App extends Component {
       budgetAmt: 0,
       isActive: false
     });
-    console.log('this.state.userList', this.state.userList);
   }
 
-  handleRemoveUser(userId) {
+  handleAddUser() {
+    const newUser = {};
+
+    newUser['id'] = this.state.userList.length;
+    newUser['username'] = this.usernameInput.value;
+    newUser['description'] = this.descriptionInput.value;
+    newUser['budgetAmt'] = this.budgetAmtInput.value;
+    newUser['isActive'] = this.isActiveInput.value;
+    // OR
+    // newUser['username'] = this.state.name;
+    // newUser['description'] = this.state.description;
+    // newUser['budgetAmt'] = this.state.budgetAmt;
+    // newUser['isActive'] = this.state.isActive;
+
+    const usersEndpoint = 'http://localhost:5000/adduser';
+    axios.post(usersEndpoint, newUser)
+    .then(this.addUserFromServerResponse)
+    .catch(function (error) {
+      console.log(error);
+    });
+  }
+
+  // Used inside handleRemoveUser(). Passes as callback to axios.delete().
+  deleteUserFromServerResponse(userId) {
     const newUserList = this.state.userList;
     newUserList.forEach((currUser, i) => {
       console.log('currUser.id ', currUser.id);
@@ -71,13 +89,22 @@ class App extends Component {
     this.setState({ userList: newUserList  });
   }
 
+  handleRemoveUser(userId) {
+    const usersEndpoint = 'http://localhost:5000/deleteuser';
+      axios.delete(usersEndpoint,  {params: {id: userId}})
+      .then((res) => { this.deleteUserFromServerResponse(userId); })
+      .catch(function (error) {
+        console.log(error);
+    });
+  }
+
   componentDidMount() {
     const usersEndpoint = 'http://localhost:5000/userdata';
     axios.get(usersEndpoint).then(res => {
-      console.log("res: " + res.data[0]);
-      const newUserList = res.data;
-      this.setState({ userList: newUserList  });
-      console.log('this.state.userList', this.state.userList);
+      if (res.data.length > 0) {
+        const newUserList = res.data;
+        this.setState({ userList: newUserList });
+      }
     });
   }
 
@@ -87,22 +114,26 @@ class App extends Component {
         <input
           type="text"
           value = {this.state.name}
-          onChange={this.handleUserNameChange}
+          ref={(ptr) => { this.usernameInput = ptr; }}
+          onChange={this.handleUserNameChange}  // Not really needed, thanks to ref.
         />
         <input
           type="text"
           value = {this.state.description}
-          onChange={this.handleUserDescriptionChange}
+          ref={(ptr) => { this.descriptionInput = ptr; }}
+          onChange={this.handleUserDescriptionChange}  // Not really needed, thanks to ref.
         />
         <input
           type="text"
           value = {this.state.budgetAmt}
-          onChange={this.handleUserBudgetAmtChange}
+          ref={(ptr) => { this.budgetAmtInput = ptr; }}
+          onChange={this.handleUserBudgetAmtChange}  // Not really needed, thanks to ref.
         />
         <input
           type="text"
           value = {this.state.isActive}
-          onChange={this.handleUserIsActiveChange}
+          ref={(ptr) => { this.isActiveInput = ptr; }}
+          onChange={this.handleUserIsActiveChange}  // Not really needed, thanks to ref.
         />
         <button onClick={this.handleAddUser}>Submit User</button>
         {this.state.userList.map(user => {
