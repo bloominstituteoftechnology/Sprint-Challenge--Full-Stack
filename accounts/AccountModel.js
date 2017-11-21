@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
-
+require('mongoose-double')(mongoose);
+const SchemaTypes = mongoose.Schema.Types;
 const AccountSchema = new mongoose.Schema({
   name: {
     type: String,
@@ -10,7 +11,7 @@ const AccountSchema = new mongoose.Schema({
     required: true,
   },
   budgetedAmount: {
-    type: Number,
+    type: SchemaTypes.Double,
     required: true,    
   },
   isActive: {

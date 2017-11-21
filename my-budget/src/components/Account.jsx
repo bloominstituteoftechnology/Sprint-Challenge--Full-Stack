@@ -20,10 +20,10 @@ export default class Account extends Component {
     super(props);
 
     super(props);
-    this.name = '';
-    this.description = '';
-    this.budgetedAmount = 0;
-    this.isActive = false;
+    this.name = ''
+    this.description = ''
+    this.budgetedAmount = 0
+    this.isActive = false
   }
 
   componentDidMount() {}
@@ -31,23 +31,24 @@ export default class Account extends Component {
     return (
       <form
         onSubmit={e => {
-          e.preventDefault();
+          //e.preventDefault();
           /*
           console.log(
             `name:${this.name.value}  age:${this.age.value} email:${this.email
               .value}`
           );
           */
+
           this.props.addAccount({
             name: this.name.value,
             description: this.description.value,
             budgetedAmount: this.budgetedAmount.value,
             isActive: this.isActive.value
           });
-          this.name = '';
-          this.description = '';
-          this.budgetedAmount = 0;
-          this.isActive = false;
+          this.name = ''
+          this.description = ''
+          this.budgetedAmount = 0
+          this.isActive = false
         }}
       >
         <div style={{ height: '30px', display: 'inline' }}>

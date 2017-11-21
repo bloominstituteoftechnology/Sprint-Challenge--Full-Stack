@@ -14,35 +14,38 @@ class Accounts extends Component {
   }
 
   componentDidMount() {
-    this.props.fetchAccounts().then(props => 
-    this.setState(
-      {
-        accounts: props.payload.data
+    this.props.fetchAccounts().then(
+      props => {
+        console.log('accounts props.payload.data', props.payload.data);
+        this.setState({
+          accounts: props.payload.data
+        });
       },
-      () => {console.log('Mounted State:', this.state)}
-    )); //  console.log('Mounted State:', this.state))
+      () => {
+        console.log('Mounted State:', this.state);
+      }
+    ); //  console.log('Mounted State:', this.state))
   }
-  setHTML = (cellInfo) => {
-    let r = {}
+  setHTML = cellInfo => {
+    let r = {};
     try {
-      if (this.props.accounts === undefined) return  { __html: 'undef data'}
+      if (this.props.accounts === undefined) return { __html: 'undef data' };
       // console.log('setHTML non undef data');
       // let index = cellInfo.index
       // console.log('index:',index)
       // let id = cellInfo.column.id
       // console.log('id:',id)
-      r = {  __html:this.props.accounts[cellInfo.index][cellInfo.column.id]}
-    }
-    catch(err) {
+      r = { __html: this.props.accounts[cellInfo.index][cellInfo.column.id] };
+    } catch (err) {
       // console.log('setHTML err:',err)
-      r = { __html: 'empty crap'}
+      r = { __html: 'empty crap' };
     }
     return r;
-  }
-  renderEditable = (cellInfo) => {
+  };
+  renderEditable = cellInfo => {
     return (
       <div
-        style={{ backgroundColor: "#fafafa" }}
+        style={{ backgroundColor: '#fafafa' }}
         contentEditable
         suppressContentEditableWarning
         onBlur={e => {
@@ -50,10 +53,10 @@ class Accounts extends Component {
           data[cellInfo.index][cellInfo.column.id] = e.target.innerHTML;
           this.setState({ accounts: data });
         }}
-        dangerouslySetInnerHTML={this.setHTML(cellInfo)}        
+        dangerouslySetInnerHTML={this.setHTML(cellInfo)}
       />
     );
-  }
+  };
 
   render() {
     const columns = [
@@ -110,13 +113,15 @@ class Accounts extends Component {
             Delete Account
           </button>
         )
-      }      
+      }
     ];
+    //console.log('remder props.account', this.props.accounts)
+
     return (
       <div>
         <ReactTable
           className="-highlight"
-          defaultPageSize={5}
+          defaultPageSize={15}
           data={this.props.accounts}
           columns={columns}
 
@@ -136,9 +141,7 @@ class Accounts extends Component {
         }}
         */
         />
-        <button>
-          <Link to={`/account`}>Add an Account</Link>
-        </button>
+        <Link to='/account'>Add account</Link>
       </div>
     );
   }

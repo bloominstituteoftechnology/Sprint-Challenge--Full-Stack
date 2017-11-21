@@ -36,6 +36,7 @@ accountsRouter.get('/', function(req, res) {
         .status(statusCodes.userError)
         .json({ error: "Database Server error, can't get accounts" });
     } else {
+      //console.log('accounts:', accounts)
       res.status(statusCodes.success).json(accounts);
     }
   });
@@ -43,6 +44,7 @@ accountsRouter.get('/', function(req, res) {
 
 accountsRouter.get('/:id', function(req, res) {
   const { id } = req.params;
+
 
   Account.findById(id, function(err, account) {
     if (err) {
