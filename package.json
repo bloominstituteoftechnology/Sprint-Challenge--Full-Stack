@@ -1,0 +1,17 @@
+{
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "cors": "^2.8.4",
+    "express": "^4.16.2",
+    "mongoose": "^4.13.3",
+    "nodemon": "^1.12.1",
+    "react-router-dom": "^4.2.2"
+  },
+  "name": "BudgetTracker",
+  "version": "1.0.0",
+  "description": "\"Full Stack Sprint, lets do this\"",
+  "main": "index.js",
+  "repository": "https://github.com/CosmonautJones/Sprint-Challenge--Full-Stack.git",
+  "author": "CosmonautJones <travisj_jones@hotmail.com>",
+  "license": "MIT"
+}

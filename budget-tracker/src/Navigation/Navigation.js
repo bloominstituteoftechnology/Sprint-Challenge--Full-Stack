@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 
 import {
   Route,
@@ -11,7 +10,7 @@ import '../App.css';
 const Navigation = () => {
   return (
     <div>
-      <Link className="linkStyle" exact to="/">Home</Link>
+      <Link className="linkStyle" to="/">Home</Link>
       <Link className="linkStyle" to="/users">Accounts</Link>
       <Link className="linkStyle" to="/budget">Budget Lists</Link>
     </div>
