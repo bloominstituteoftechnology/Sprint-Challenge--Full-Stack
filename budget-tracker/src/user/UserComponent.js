@@ -44,7 +44,7 @@ handleSubmit = (event, username, password) => {
   render() {
     let name;
     let password;
-    
+
     return (
       <div>
         <h1>User Accounts</h1>
@@ -52,7 +52,7 @@ handleSubmit = (event, username, password) => {
           {this.state.users.map(users =>
             <ul key={users._id}>
             <h3>Username:{users.username}</h3>
-            <ul>Password: {users.password}</ul>
+            <ul>Password:{users.password}</ul>
             </ul>
           )}
         </ul>
